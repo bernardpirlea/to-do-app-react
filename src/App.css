@@ -1,3 +1,48 @@
-body {
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
   text-align: center;
+  background-color: #fcc058;
+  height: 100px;
+  width: 100%;
+}
+
+.main {
+  width: 30%;
+  padding: 15px;
+  text-align: center;
+}
+
+input[type="text"] {
+  font-size: 15px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  font-size: 15px;
+  padding: 5px 10px;
+  background-color: #fcc058;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.to-do-list {
+  list-style: none;
+  margin: 0;
+  padding: 15px 0px;
+}
+
+.list-item {
+  padding: 15px;
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
