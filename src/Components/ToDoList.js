@@ -1,11 +1,11 @@
 import React from 'react'
 import ToDoItem from './ToDoItem'
 
-const ToDoList = ( {toDoList} ) => {
+const ToDoList = ( {toDoList, markDone} ) => {
     return (
         <ul className='to-do-list'>
             {
-                toDoList.map( item => <ToDoItem item={item} /> )
+                toDoList.map( (item, index) => <ToDoItem item={item} key={index} index={index} markDone={markDone} /> )
             }
         </ul>
     )
