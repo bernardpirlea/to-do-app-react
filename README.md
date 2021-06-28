@@ -1,5 +1,5 @@
 # to-do-app-react
 
-Just a to-do app made with React
+Just a to-do app made with React:
 
-[Live!](http://bernardpirlea.github.io/to-do-app-react)
+[Try it now!](http://bernardpirlea.github.io/to-do-app-react)
