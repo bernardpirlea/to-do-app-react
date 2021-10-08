@@ -1,15 +1,11 @@
-.App {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .header {
   text-align: center;
   background-color: #4d774e;
   height: 100px;
   width: 100%;
+}
+body {
+  height: 100%;
 }
 
 .main {
