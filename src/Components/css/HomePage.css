@@ -1,0 +1,26 @@
+.app-logo {
+  background-color: #220b57;
+  display: flex;
+  align-items: center;
+}
+
+.homepage-container {
+  height: 100vh;
+  display: flex;
+}
+
+.login-section {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-section .form-control {
+  width: 100%;
+}
+
+.login-button {
+  background-color: #220b57;
+  color: white;
+}

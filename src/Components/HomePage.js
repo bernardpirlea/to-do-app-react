@@ -1,18 +1,15 @@
 import React from "react";
-import Header from "./Header";
+import "./css/HomePage.css";
+import logoImage from "../Images/to-do-logo.png";
+import Login from "./Login";
 
 const HomePage = () => {
   return (
-    <div>
-      <Header />
-      <div className="container homepage d-flex">
-        <button type="button" className="btn col-4 btn-success btn-lg">
-          Login
-        </button>
-        <button type="button" className="btn col-4 btn-outline-success btn-lg">
-          Register
-        </button>
+    <div className="homepage-container">
+      <div className="app-logo">
+        <img src={logoImage} alt="Logo Image" />
       </div>
+      <Login />
     </div>
   );
 };

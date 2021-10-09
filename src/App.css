@@ -4,9 +4,6 @@
   height: 100px;
   width: 100%;
 }
-body {
-  height: 100%;
-}
 
 .main {
   width: 30%;
@@ -14,17 +11,17 @@ body {
   text-align: center;
 }
 
-form {
+/* form {
   display: flex;
   justify-content: space-between;
-}
+} */
 
-input[type="text"] {
+/* input[type="text"] {
   width: 65%;
   font-size: 15px;
   padding: 15px;
   box-sizing: border-box;
-}
+} */
 
 button {
   width: 30%;
