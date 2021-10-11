@@ -1,10 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   return (
     <div className="login-section">
       <form className="col-5">
+        <div className="mb-3">
+          <label for="emailInput" class="form-label">
+            Email
+          </label>
+          <input type="email" class="form-control" id="emailInput" />
+        </div>
         <div className="mb-3">
           <label for="usernameInput" class="form-label">
             Username
@@ -18,11 +23,11 @@ const Login = () => {
           <input type="password" class="form-control" id="passwordInput" />
         </div>
         <button type="submit" class="btn login-button">
-          Login
+          Sign up
         </button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

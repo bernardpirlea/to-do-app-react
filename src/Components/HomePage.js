@@ -2,6 +2,7 @@ import React from "react";
 import "./css/HomePage.css";
 import logoImage from "../Images/to-do-logo.png";
 import Login from "./Login";
+import Signup from "./Signup";
 
 const HomePage = () => {
   return (
@@ -10,6 +11,7 @@ const HomePage = () => {
         <img src={logoImage} alt="Logo Image" />
       </div>
       <Login />
+      {/* <Signup /> */}
     </div>
   );
 };
