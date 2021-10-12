@@ -24,3 +24,9 @@
   background-color: #220b57;
   color: white;
 }
+
+.link {
+  cursor: pointer;
+  color: blue;
+  text-decoration: none;
+}

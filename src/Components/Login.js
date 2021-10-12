@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ changeMode }) => {
+  const handleClick = () => {
+    changeMode();
+  };
   return (
     <div className="login-section">
       <form className="col-5">
@@ -20,6 +22,13 @@ const Login = () => {
         <button type="submit" class="btn login-button">
           Login
         </button>
+        <span className="mx-2">
+          Not a member?
+          <a className="link" onClick={handleClick}>
+            {" "}
+            Sign up now!
+          </a>
+        </span>
       </form>
     </div>
   );
