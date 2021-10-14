@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+
+const initialValues = {
+  email: "",
+  username: "",
+  password: "",
+};
 
 const Signup = ({ changeMode }) => {
+  const [values, setValues] = useState(initialValues);
+
   const handleClick = () => {
     changeMode();
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/register/",
+        values
+      );
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="login-section">
       <form className="col-5">
@@ -11,21 +42,42 @@ const Signup = ({ changeMode }) => {
           <label for="emailInput" class="form-label">
             Email
           </label>
-          <input type="email" class="form-control" id="emailInput" />
+          <input
+            type="email"
+            class="form-control"
+            id="emailInput"
+            value={values.email}
+            onChange={handleInputChange}
+            name="email"
+          />
         </div>
         <div className="mb-3">
           <label for="usernameInput" class="form-label">
             Username
           </label>
-          <input type="text" class="form-control" id="usernameInput" />
+          <input
+            type="text"
+            class="form-control"
+            id="usernameInput"
+            value={values.username}
+            onChange={handleInputChange}
+            name="username"
+          />
         </div>
         <div className="mb-3">
           <label for="passwordInput" class="form-label">
             Password
           </label>
-          <input type="password" class="form-control" id="passwordInput" />
+          <input
+            type="password"
+            class="form-control"
+            id="passwordInput"
+            value={values.password}
+            onChange={handleInputChange}
+            name="password"
+          />
         </div>
-        <button type="submit" class="btn login-button">
+        <button type="submit" class="btn login-button" onClick={handleSubmit}>
           Sign up
         </button>
         <span className="mx-2">

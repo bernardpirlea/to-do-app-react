@@ -1,6 +1,4 @@
 import "./App.css";
-import Content from "./Components/Content";
-import Header from "./Components/Header";
 import { Route } from "react-router";
 import HomePage from "./Components/HomePage";
 import ToDoPage from "./Components/ToDoPage";

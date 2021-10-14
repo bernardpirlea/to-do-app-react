@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <div className="homepage-container">
       <div className="app-logo">
-        <img src={logoImage} alt="Logo Image" />
+        <img src={logoImage} alt="Logo" />
       </div>
       {loginMode && <Login changeMode={changeMode} />}
       {!loginMode && <Signup changeMode={changeMode} />}
