@@ -25,6 +25,7 @@ const Signup = ({ changeMode }) => {
 
   const handleSubmit = async (e) => {
     try {
+      e.preventDefault();
       const response = await axios.post(
         "http://localhost:8000/api/register/",
         values
