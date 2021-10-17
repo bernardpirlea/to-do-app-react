@@ -7,7 +7,7 @@ const initialValues = {
   password: "",
 };
 
-const Signup = ({ changeMode }) => {
+const Signup = ({ changeMode, setToken }) => {
   const [values, setValues] = useState(initialValues);
 
   const handleClick = () => {
@@ -30,7 +30,7 @@ const Signup = ({ changeMode }) => {
         "http://localhost:8000/api/register/",
         values
       );
-      console.log(response);
+      setToken(response.data.token);
     } catch (error) {
       console.error(error);
     }

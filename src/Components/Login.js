@@ -6,7 +6,7 @@ const initialValues = {
   password: "",
 };
 
-const Login = ({ changeMode }) => {
+const Login = ({ changeMode, setToken }) => {
   const [values, setValues] = useState(initialValues);
 
   const handleInputChange = (e) => {
@@ -25,7 +25,7 @@ const Login = ({ changeMode }) => {
         "http://localhost:8000/api/login/",
         values
       );
-      console.log(response);
+      setToken(response.data.token);
     } catch (error) {
       console.error(error);
     }
