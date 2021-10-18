@@ -8,6 +8,27 @@ const initialValues = {
 
 const Login = ({ changeMode, setToken }) => {
   const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState(initialValues);
+
+  const validation = () => {
+    let formIsValid = true;
+    if (!values["username"]) {
+      formIsValid = false;
+      setErrors({
+        ...errors,
+        ["username"]: "Cannot be empty",
+      });
+    }
+
+    if (!values["password"]) {
+      formIsValid = false;
+      setErrors({
+        ...errors,
+        ["password"]: "Cannot be empty",
+      });
+    }
+    return formIsValid;
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -21,11 +42,13 @@ const Login = ({ changeMode, setToken }) => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post(
-        "http://localhost:8000/api/login/",
-        values
-      );
-      setToken(response.data.token);
+      if (validation()) {
+        const response = await axios.post(
+          "http://localhost:8000/api/login/",
+          values
+        );
+        setToken(response.data.token);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -49,6 +72,7 @@ const Login = ({ changeMode, setToken }) => {
             onChange={handleInputChange}
             name="username"
           />
+          <span style={{ color: "red" }}>{errors["username"]}</span>
         </div>
         <div className="mb-3">
           <label htmlFor="passwordInput" className="form-label">
@@ -62,6 +86,7 @@ const Login = ({ changeMode, setToken }) => {
             onChange={handleInputChange}
             name="password"
           />
+          <span style={{ color: "red" }}>{errors["password"]}</span>
         </div>
         <button
           type="submit"
