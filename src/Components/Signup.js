@@ -9,6 +9,22 @@ const initialValues = {
 
 const Signup = ({ changeMode, setToken }) => {
   const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState(initialValues);
+
+  const validation = () => {
+    let formIsValid = true;
+
+    for (const [key, value] of Object.entries(values)) {
+      if (!value) {
+        formIsValid = false;
+        setErrors({
+          ...errors,
+          [key]: "Cannot be empty",
+        });
+      }
+    }
+    return formIsValid;
+  };
 
   const handleClick = () => {
     changeMode();

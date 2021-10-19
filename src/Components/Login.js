@@ -12,20 +12,15 @@ const Login = ({ changeMode, setToken }) => {
 
   const validation = () => {
     let formIsValid = true;
-    if (!values["username"]) {
-      formIsValid = false;
-      setErrors({
-        ...errors,
-        ["username"]: "Cannot be empty",
-      });
-    }
 
-    if (!values["password"]) {
-      formIsValid = false;
-      setErrors({
-        ...errors,
-        ["password"]: "Cannot be empty",
-      });
+    for (const [key, value] of Object.entries(values)) {
+      if (!value) {
+        formIsValid = false;
+        setErrors({
+          ...errors,
+          [key]: "Cannot be empty",
+        });
+      }
     }
     return formIsValid;
   };
