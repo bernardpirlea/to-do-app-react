@@ -13,15 +13,22 @@ const Login = ({ changeMode, setToken }) => {
   const validation = () => {
     let formIsValid = true;
 
-    for (const [key, value] of Object.entries(values)) {
-      if (!value) {
-        formIsValid = false;
-        setErrors({
-          ...errors,
-          [key]: "Cannot be empty",
-        });
-      }
+    let errorsFields = {};
+
+    //Username
+    if (!values["username"]) {
+      formIsValid = false;
+      errorsFields["username"] = "Cannot be empty";
     }
+
+    //password
+    if (!values["password"]) {
+      formIsValid = false;
+      errorsFields["password"] = "Cannot be empty";
+    }
+
+    setErrors(errorsFields);
+
     return formIsValid;
   };
 
@@ -44,6 +51,7 @@ const Login = ({ changeMode, setToken }) => {
         );
         setToken(response.data.token);
       }
+      return;
     } catch (error) {
       console.error(error);
     }
@@ -61,7 +69,7 @@ const Login = ({ changeMode, setToken }) => {
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="usernameInput"
             value={values.username}
             onChange={handleInputChange}
@@ -75,7 +83,7 @@ const Login = ({ changeMode, setToken }) => {
           </label>
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             id="passwordInput"
             value={values.password}
             onChange={handleInputChange}
