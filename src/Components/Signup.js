@@ -13,16 +13,15 @@ const Signup = ({ changeMode, setToken }) => {
 
   const validation = () => {
     let formIsValid = true;
+    let errorsField = {};
 
     for (const [key, value] of Object.entries(values)) {
       if (!value) {
         formIsValid = false;
-        setErrors({
-          ...errors,
-          [key]: "Cannot be empty",
-        });
+        errorsField[key] = "Cannot be empty";
       }
     }
+    setErrors(errorsField);
     return formIsValid;
   };
 
@@ -42,11 +41,14 @@ const Signup = ({ changeMode, setToken }) => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post(
-        "http://localhost:8000/api/register/",
-        values
-      );
-      setToken(response.data.token);
+      if (validation()) {
+        const response = await axios.post(
+          "http://localhost:8000/api/register/",
+          values
+        );
+        setToken(response.data.token);
+      }
+      return;
     } catch (error) {
       console.error(error);
     }
@@ -67,6 +69,7 @@ const Signup = ({ changeMode, setToken }) => {
             onChange={handleInputChange}
             name="email"
           />
+          <span style={{ color: "red" }}>{errors["email"]}</span>
         </div>
         <div className="mb-3">
           <label for="usernameInput" class="form-label">
@@ -80,6 +83,7 @@ const Signup = ({ changeMode, setToken }) => {
             onChange={handleInputChange}
             name="username"
           />
+          <span style={{ color: "red" }}>{errors["username"]}</span>
         </div>
         <div className="mb-3">
           <label for="passwordInput" class="form-label">
@@ -93,6 +97,7 @@ const Signup = ({ changeMode, setToken }) => {
             onChange={handleInputChange}
             name="password"
           />
+          <span style={{ color: "red" }}>{errors["password"]}</span>
         </div>
         <button type="submit" class="btn login-button" onClick={handleSubmit}>
           Sign up
