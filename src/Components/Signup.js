@@ -21,6 +21,7 @@ const Signup = ({ changeMode, setToken }) => {
         errorsField[key] = "Cannot be empty";
       }
     }
+
     setErrors(errorsField);
     return formIsValid;
   };
