@@ -7,7 +7,8 @@ import { useState } from "react";
 function App() {
   const [token, setToken] = useState();
   const updateToken = (value) => {
-    setToken(value);
+    //setToken(value);
+    sessionStorage.setItem("token", JSON.stringify(value));
   };
   return (
     <div className="App">
