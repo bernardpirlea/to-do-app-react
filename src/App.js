@@ -4,22 +4,35 @@ import HomePage from "./Components/HomePage";
 import ToDoPage from "./Components/ToDoPage";
 import { useState } from "react";
 
-function App() {
-  const [token, setToken] = useState();
-  const updateToken = (value) => {
-    //setToken(value);
-    sessionStorage.setItem("token", JSON.stringify(value));
+const useToken = () => {
+  const getToken = () => {
+    const tokenString = sessionStorage.getItem("token");
+    const userToken = JSON.parse(tokenString);
+    if (userToken) {
+      return userToken;
+    }
   };
+  const updateToken = (token) => {
+    sessionStorage.setItem("token", JSON.stringify(token));
+    setToken(token);
+  };
+  const [token, setToken] = useState(getToken());
+  return {
+    updateToken: updateToken,
+    token,
+  };
+};
+
+function App() {
+  const { token, updateToken } = useToken();
+
+  if (!token) {
+    return <HomePage setToken={updateToken} />;
+  }
+
   return (
     <div className="App">
-      {!token && (
-        <Route
-          exact
-          path="/"
-          render={(props) => <HomePage {...props} setToken={updateToken} />}
-        />
-      )}
-      {token && <Route exact path="/" component={ToDoPage} />}
+      <ToDoPage />
     </div>
   );
 }
