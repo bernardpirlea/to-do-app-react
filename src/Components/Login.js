@@ -55,7 +55,7 @@ const Login = ({ changeMode, setToken }) => {
   };
   return (
     <div className="login-section">
-      <form className="col-5">
+      <form className="col-9 col-md-8 col-lg-6 col-xl-5">
         <div className="mb-3">
           <label htmlFor="usernameInput" className="form-label">
             Username
