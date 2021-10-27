@@ -6,14 +6,14 @@ import { useState } from "react";
 
 const useToken = () => {
   const getToken = () => {
-    const tokenString = sessionStorage.getItem("token");
+    const tokenString = localStorage.getItem("token");
     const userToken = JSON.parse(tokenString);
     if (userToken) {
       return userToken;
     }
   };
   const updateToken = (token) => {
-    sessionStorage.setItem("token", JSON.stringify(token));
+    localStorage.setItem("token", JSON.stringify(token));
     setToken(token);
   };
   const [token, setToken] = useState(getToken());
