@@ -105,10 +105,9 @@ const Signup = ({ changeMode, setToken }) => {
         </button>
         <span className="mx-2">
           Already a member?
-          <a className="link" onClick={handleClick}>
-            {" "}
+          <button className="link" onClick={handleClick}>
             Log In!
-          </a>
+          </button>
         </span>
       </form>
     </div>

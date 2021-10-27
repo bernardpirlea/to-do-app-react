@@ -93,10 +93,9 @@ const Login = ({ changeMode, setToken }) => {
         </button>
         <span className="mx-2">
           Not a member?
-          <a className="link" onClick={handleClick}>
-            {" "}
+          <button className="link" onClick={handleClick}>
             Sign up now!
-          </a>
+          </button>
         </span>
       </form>
     </div>

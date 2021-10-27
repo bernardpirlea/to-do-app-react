@@ -26,9 +26,14 @@
 }
 
 .link {
-  cursor: pointer;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  margin-left: 0.5rem;
+  background-color: white;
   color: blue;
-  text-decoration: none;
 }
 
 @media (max-width: 768px) {
