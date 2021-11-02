@@ -9,8 +9,15 @@
   display: flex;
 }
 
-.login-section {
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-grow: 1;
+  justify-content: center;
+}
+
+.login-section {
   display: flex;
   align-items: center;
   justify-content: center;
