@@ -27,11 +27,11 @@ const Login = ({ changeMode, setToken }) => {
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { id, value } = e.target;
 
     setValues({
       ...values,
-      [name]: value,
+      [id]: value,
     });
   };
 
@@ -61,30 +61,28 @@ const Login = ({ changeMode, setToken }) => {
       <div className="login-section ">
         <form>
           <div className="mb-3">
-            <label htmlFor="usernameInput" className="form-label">
+            <label htmlFor="username" className="form-label">
               Username
             </label>
             <input
               type="text"
               className="form-control"
-              id="usernameInput"
+              id="username"
               value={values.username}
               onChange={handleInputChange}
-              name="username"
             />
             <span style={{ color: "red" }}>{errors["username"]}</span>
           </div>
           <div className="mb-3">
-            <label htmlFor="passwordInput" className="form-label">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
             <input
               type="password"
               className="form-control"
-              id="passwordInput"
+              id="password"
               value={values.password}
               onChange={handleInputChange}
-              name="password"
             />
             <span style={{ color: "red" }}>{errors["password"]}</span>
           </div>

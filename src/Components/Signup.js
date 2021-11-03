@@ -32,11 +32,11 @@ const Signup = ({ changeMode, setToken }) => {
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { id, value } = e.target;
 
     setValues({
       ...values,
-      [name]: value,
+      [id]: value,
     });
   };
 
@@ -66,44 +66,41 @@ const Signup = ({ changeMode, setToken }) => {
       <div className="login-section">
         <form>
           <div className="mb-3">
-            <label for="emailInput" class="form-label">
+            <label for="email" class="form-label">
               Email
             </label>
             <input
               type="email"
               class="form-control"
-              id="emailInput"
+              id="email"
               value={values.email}
               onChange={handleInputChange}
-              name="email"
             />
             <span style={{ color: "red" }}>{errors["email"]}</span>
           </div>
           <div className="mb-3">
-            <label for="usernameInput" class="form-label">
+            <label for="username" class="form-label">
               Username
             </label>
             <input
               type="text"
               class="form-control"
-              id="usernameInput"
+              id="username"
               value={values.username}
               onChange={handleInputChange}
-              name="username"
             />
             <span style={{ color: "red" }}>{errors["username"]}</span>
           </div>
           <div className="mb-3">
-            <label for="passwordInput" class="form-label">
+            <label for="password" class="form-label">
               Password
             </label>
             <input
               type="password"
               class="form-control"
-              id="passwordInput"
+              id="password"
               value={values.password}
               onChange={handleInputChange}
-              name="password"
             />
             <span style={{ color: "red" }}>{errors["password"]}</span>
           </div>
