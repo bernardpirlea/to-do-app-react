@@ -56,9 +56,9 @@ const Login = ({ changeMode, setToken }) => {
     changeMode();
   };
   return (
-    <div className="login col-9 col-md-8 col-lg-6 col-xl-5">
+    <div className="login">
       <p style={{ color: "red" }}>{submitError}</p>
-      <div className="login-section ">
+      <div className="login-section">
         <form>
           <div className="mb-3">
             <label htmlFor="username" className="form-label">

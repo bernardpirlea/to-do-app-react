@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./css/HomePage.css";
 import logoImage from "../Images/to-do-logo.png";
-import Login from "./Login";
-import Signup from "./Signup";
+import Login from "./homepage/Login";
+import Signup from "./homepage/Signup";
 
 const HomePage = ({ setToken }) => {
   const [loginMode, setLoginMode] = useState(true);
