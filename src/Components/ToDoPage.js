@@ -1,7 +1,9 @@
 import React from "react";
+import Content from "./todopage/Content";
+import "./css/ToDoPage.css";
 
-const ToDoPage = () => {
-  return <div>To Do page</div>;
+const ToDoPage = ({ token }) => {
+  return <Content />;
 };
 
 export default ToDoPage;
