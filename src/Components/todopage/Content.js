@@ -27,8 +27,8 @@ const Content = () => {
 
   return (
     <main className="main">
-      <form className="form-inline form">
-        <div className="form-group">
+      <form className="form col-12 col-md-7 col-lg-4">
+        <div className="form-group col-8">
           <input
             type="text"
             class="form-control"
@@ -36,7 +36,7 @@ const Content = () => {
             value={input}
           />
         </div>
-        <button onClick={handleClick} className="btn btn-primary">
+        <button onClick={handleClick} className="btn btn-primary col-3">
           Add
         </button>
       </form>
