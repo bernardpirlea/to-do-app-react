@@ -1,10 +1,26 @@
 import React from "react";
 import ToDoList from "./ToDoList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const Content = () => {
+const Content = ({ token }) => {
   const [input, setInput] = useState("");
   const [toDoList, setToDoList] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      let res = await axios.get("http://localhost:8000/api/todo-list/", {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
+
+      if (res.status == 200) {
+        console.log(res);
+        setToDoList(res.data);
+      }
+    })();
+  }, []);
 
   const markDone = (index) => {
     const newToDoList = [...toDoList];
@@ -31,7 +47,7 @@ const Content = () => {
         <div className="form-group col-8">
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             onChange={handleChange}
             value={input}
           />
